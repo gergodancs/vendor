@@ -1,0 +1,28 @@
+.big__coins {
+  border: 6px solid black;
+  border-radius: 10px;
+  padding: 0.7rem;
+  background-color: lightgrey;
+  display: flex;
+  column-gap: 5px;
+  margin-left: 10px;
+}
+.small__coins {
+  display: flex;
+  column-gap: 5px;
+  margin-left: 10px;
+  padding: 0.7rem;
+  position: relative;
+  top: 20%;
+}
+
+.big__coins > img,
+.small__coins > img {
+  max-width: 70px;
+}
+
+.coin__container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}

@@ -1,0 +1,124 @@
+.snickers {
+  position: relative;
+  top: -485px;
+}
+.snickers > img {
+  max-width: 70px;
+}
+.snickers > .animatedSnick {
+  position: relative;
+  left: 80px;
+  animation: mars 5s, display 5s;
+  opacity: 1;
+}
+.snickers > .noAnimatedSnick {
+  opacity: 0;
+}
+.snickers > .elso {
+  position: relative;
+  left: 160px;
+}
+.bomba {
+  position: relative;
+  top: -650px;
+  width: 150px;
+}
+
+.bomba > img {
+  max-width: 50px;
+  max-height: 80px;
+}
+.bomba > .masodik {
+  position: relative;
+  left: 15px;
+}
+
+.bomba > .noAnimatedBomba {
+  opacity: 0;
+}
+.bomba > .animatedBomba {
+  position: relative;
+  animation: bomba 5s, display 5s;
+  opacity: 0;
+}
+.mars {
+  position: relative;
+  top: -650px;
+}
+.mars > img {
+  max-width: 70px;
+  max-height: 80px;
+}
+
+.mars > .elso {
+  position: relative;
+
+  left: 85px;
+}
+.mars > .noAnimatedMars {
+  position: relative;
+  left: 10px;
+  opacity: 0;
+}
+.mars > .animatedMars {
+  position: relative;
+  left: 10px;
+
+  animation: mars 5s, display 5s;
+  opacity: 1;
+}
+@keyframes mars {
+  0% {
+    top: 1px;
+  }
+
+  10% {
+    top: 10px;
+  }
+
+  25% {
+    top: 150px;
+
+    transform: rotateZ(50deg);
+  }
+
+  100% {
+    left: 20px;
+    top: 150px;
+    transform: rotateZ(50deg);
+  }
+}
+
+@keyframes bomba {
+  0% {
+    left: 45px;
+    display: inline;
+  }
+
+  10% {
+    top: 20px;
+  }
+
+  25% {
+    top: 220px;
+    left: 60px;
+    transform: rotateZ(90deg);
+  }
+
+  100% {
+    left: 60px;
+    top: 220px;
+    transform: rotateZ(90deg);
+  }
+}
+@keyframes display {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

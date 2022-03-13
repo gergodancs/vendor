@@ -1,33 +1,6 @@
 import React from "react";
 
-const PinPad = ({
-  setSpend,
-  setAnimated,
-  setAnimatedMars,
-  setAnimatedSnick,
-  setDigit,
-  arr,
-  animationStart,
-  animationBomba,
-  digitArr,
-  setResultNum,
-}) => {
-  // const clickHandler = () => {
-  //   setAnimated("animatedBomba");
-  //   setAnimatedMars("animatedMars");
-  //   setAnimatedSnick("animatedSnick");
-  // };
-
-  // const setResultNum = (arr) => {
-  //   let arr2str = arr.map((num) => num.toString());
-  //   console.log(arr2str);
-  //   let resultStr = arr2str.join("");
-
-  //   console.log(resultStr);
-  //   setDigit(resultStr);
-  //   animationBomba();
-  // };
-
+const PinPad = ({ setSpend, arr, digitArr, setResultNum }) => {
   return (
     <div className="pinpad__container">
       <div>

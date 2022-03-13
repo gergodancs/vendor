@@ -5,84 +5,79 @@ import Mars from "./Mars";
 import Display from "./Display";
 import PinPad from "./PinPad";
 import { useState } from "react";
-import { useEffect, useCallback } from "react";
+//import { useEffect, useCallback } from "react";
 
 const Machine = ({ spend, setSpend }) => {
   const [animated, setAnimated] = useState("noAnimatedBomba");
   const [animatedMars, setAnimatedMars] = useState("noAnimatedMars");
   const [animatedSnick, setAnimatedSnick] = useState("noAnimatedSnick");
-  const [digit, setDigit] = useState(0);
+  //const [digit, setDigit] = useState(0);
   const arr = [];
 
   const digitArr = (num) => arr.push(num);
 
   const setResultNum = (arr) => {
+    let res = 0;
     let arr2str = arr.map((num) => num.toString());
-    console.log(arr2str);
     let resultStr = arr2str.join("");
-    let res = Number(resultStr);
-    // console.log(res, "resss");
-
-    // setDigit(digit + res);
-    // console.log(digit, "digit");
-    animationStart(res);
+    res = Number(resultStr);
+    console.log("res:", res);
+    if (res === 0) animationStart(res);
+    if (res === 1) animationStart(res);
+    if (res === 2) animationStartSnick(res);
+    if (res === 4) animationStartMars(res);
   };
 
   const animationStart = (res) => {
-    // console.log("digit:", digit);
-    // console.log("spend:", spend);
+    if (res === 0) alert("MONEY FIRTS");
     if (res === 1 && spend > 300) {
-      setDigit(0);
+      res = 0;
       setAnimated("animatedBomba");
       setSpend(spend - 330);
       setTimeout(() => setAnimated("noAnimatedBomba"), 3000);
       setTimeout(() => {
         setSpend(0);
-        setDigit(0);
       }, 1500);
     }
   };
-  // const animationBomba = useCallback(() => {
-  //   if (digit === 1 && spend > 300) {
-  //     console.log("digit:", digit);
-  //     console.log("spend:", spend);
-  //     setAnimated("animatedBomba");
-  //     setSpend(spend - 330);
-  //     setTimeout(() => setAnimated("noAnimatedBomba"), 3000);
-  //     setTimeout(() => {
-  //       setSpend(0);
-  //       setDigit(0);
-  //     }, 1500);
-  //   }
-  // }, [digit, setSpend, spend]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     // setAnimated("noAnimatedBomba");
-  //     setAnimatedMars("noAnimatedMars");
-  //     setAnimatedSnick("noAnimatedSnick");
-  //   }, 3000);
-  // }, [spend, digit]);
+  const animationStartSnick = (res) => {
+    if (res === 0) alert("MONEY FIRTS");
+    if (res === 2 && spend > 190) {
+      res = 0;
+      setAnimatedSnick("animatedSnick");
+      setSpend(spend - 330);
+      setTimeout(() => setAnimatedSnick("noAnimatedSnick"), 3000);
+      setTimeout(() => {
+        setSpend(0);
+      }, 1500);
+    }
+  };
+  const animationStartMars = (res) => {
+    if (res === 0) alert("MONEY FIRTS");
+    if (res === 4 && spend > 500) {
+      res = 0;
+      setAnimatedMars("animatedMars");
+      setSpend(spend - 330);
+      setTimeout(() => setAnimatedMars("noAnimatedMars"), 3000);
+      setTimeout(() => {
+        setSpend(0);
+      }, 1500);
+    }
+  };
 
   return (
     <div className="machine__container">
-      <Display spend={spend} digit={digit} />
+      <Display spend={spend} />
       <img
         className="machine"
         src={require("../pics/vendor-machine.png")}
         alt="machine"
       />
       <PinPad
-        setDigit={setDigit}
         setSpend={setSpend}
-        setAnimated={setAnimated}
-        setAnimatedMars={setAnimatedMars}
-        setAnimatedSnick={setAnimatedSnick}
         arr={arr}
         digitArr={digitArr}
-        //animationStart={animationStart}
         setResultNum={setResultNum}
-        //animationStart={animationStart}
       />
       <Snickers animatedsnick={animatedSnick} />
       <Bomba animated={animated} />

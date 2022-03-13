@@ -7,7 +7,7 @@
 }
 .snickers > .animatedSnick {
   position: relative;
-  left: 80px;
+  left: 180px;
   animation: mars 5s, display 5s;
   opacity: 1;
 }
@@ -16,7 +16,13 @@
 }
 .snickers > .elso {
   position: relative;
-  left: 160px;
+  left: 245px;
+  transform: rotateZ(-18deg);
+}
+.snickers > .harmadik {
+  position: relative;
+  left: 110px;
+  transform: rotateZ(-18deg);
 }
 .bomba {
   position: relative;
@@ -26,7 +32,7 @@
 
 .bomba > img {
   max-width: 50px;
-  max-height: 80px;
+  max-height: 75px;
 }
 .bomba > .masodik {
   position: relative;
@@ -44,6 +50,7 @@
 }
 .mars {
   position: relative;
+  width: 100px;
   top: -650px;
 }
 .mars > img {
@@ -53,8 +60,9 @@
 
 .mars > .elso {
   position: relative;
+  transform: rotateZ(-18deg);
 
-  left: 85px;
+  left: 185px;
 }
 .mars > .noAnimatedMars {
   position: relative;
@@ -100,16 +108,25 @@
     left: 80px;
     top: 20px;
   }
+  16% {
+    top: 230px;
+    visibility: hidden;
+  }
+  20% {
+    top: 280px;
+    visibility: hidden;
+  }
 
-  25% {
-    top: 220px;
+  21% {
+    opacity: 1;
+    top: 320px;
     left: 85px;
     transform: rotateZ(90deg);
   }
 
   100% {
     left: 150px;
-    top: 220px;
+    top: 320px;
     transform: rotateZ(90deg);
   }
 }

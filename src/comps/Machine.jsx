@@ -6,6 +6,7 @@ import Display from "./Display";
 import PinPad from "./PinPad";
 import MoneyFirst from "./MoneyFirst";
 import { useState } from "react";
+import NoMoney from "./NoMoney";
 //import { useEffect, useCallback } from "react";
 
 const Machine = ({ spend, setSpend }) => {
@@ -13,6 +14,8 @@ const Machine = ({ spend, setSpend }) => {
   const [animatedMars, setAnimatedMars] = useState("noAnimatedMars");
   const [animatedSnick, setAnimatedSnick] = useState("noAnimatedSnick");
   const [isShowMadal, setShowMadal] = useState(false);
+  const [isEnoughMoney, setMoney] = useState(false);
+  const [moneyLeft, setMoneyLeft] = useState(0);
   //const [digit, setDigit] = useState(0);
   const arr = [];
 
@@ -24,7 +27,7 @@ const Machine = ({ spend, setSpend }) => {
     let resultStr = arr2str.join("");
     res = Number(resultStr);
     console.log("res:", res);
-    if (res === 0) animation(res);
+    if (res === 0) setShowMadal(true);
     if (res === 1)
       animation(res, setAnimated, "animatedBomba", 330, "noAnimatedBomba");
 
@@ -35,7 +38,10 @@ const Machine = ({ spend, setSpend }) => {
   };
 
   const animation = (res, setter, animstr, price, noanimstr) => {
-    if (res === 0) setShowMadal(true);
+    if (spend < price) {
+      setMoneyLeft(moneyLeft + (price - spend));
+      setMoney(true);
+    }
     if (spend >= price) {
       res = 0;
       setter(animstr);
@@ -50,6 +56,9 @@ const Machine = ({ spend, setSpend }) => {
   return (
     <div className="machine__container">
       {isShowMadal ? <MoneyFirst setShowMadal={setShowMadal} /> : null}
+      {isEnoughMoney ? (
+        <NoMoney moneyLeft={moneyLeft} setMoney={setMoney} />
+      ) : null}
       <Display spend={spend} />
 
       <img

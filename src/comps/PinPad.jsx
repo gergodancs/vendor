@@ -8,6 +8,9 @@ const PinPad = ({
   setDigit,
   arr,
   animationStart,
+  animationBomba,
+  digitArr,
+  setResultNum,
 }) => {
   // const clickHandler = () => {
   //   setAnimated("animatedBomba");
@@ -15,17 +18,15 @@ const PinPad = ({
   //   setAnimatedSnick("animatedSnick");
   // };
 
-  const digitArr = (num) => arr.push(num);
+  // const setResultNum = (arr) => {
+  //   let arr2str = arr.map((num) => num.toString());
+  //   console.log(arr2str);
+  //   let resultStr = arr2str.join("");
 
-  const setResultNum = (arr) => {
-    let arr2str = arr.map((num) => num.toString());
-    //console.log(arr2str);
-    let resultStr = arr2str.join("");
-
-    console.log(resultStr);
-    setDigit(resultStr);
-    animationStart();
-  };
+  //   console.log(resultStr);
+  //   setDigit(resultStr);
+  //   animationBomba();
+  // };
 
   return (
     <div className="pinpad__container">

@@ -30,7 +30,7 @@
 }
 .bomba > .masodik {
   position: relative;
-  left: 15px;
+  left: 55px;
 }
 
 .bomba > .noAnimatedBomba {
@@ -38,6 +38,7 @@
 }
 .bomba > .animatedBomba {
   position: relative;
+  left: 75px;
   animation: bomba 5s, display 5s;
   opacity: 0;
 }
@@ -91,22 +92,23 @@
 
 @keyframes bomba {
   0% {
-    left: 45px;
+    left: 76px;
     display: inline;
   }
 
   10% {
+    left: 80px;
     top: 20px;
   }
 
   25% {
     top: 220px;
-    left: 60px;
+    left: 85px;
     transform: rotateZ(90deg);
   }
 
   100% {
-    left: 60px;
+    left: 150px;
     top: 220px;
     transform: rotateZ(90deg);
   }

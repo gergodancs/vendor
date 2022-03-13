@@ -24,7 +24,7 @@ code {
 }
 .display__container {
   position: relative;
-  left: 350px;
+  left: 385px;
   top: 105px;
   display: flex;
   align-items: center;
@@ -85,4 +85,10 @@ code {
   align-items: center;
   border-radius: 10px;
   letter-spacing: 0.1rem;
+}
+.cancel-btn {
+  position: relative;
+  width: 35px;
+  left: 433px;
+  bottom: 498px;
 }

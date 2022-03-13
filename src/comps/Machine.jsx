@@ -24,44 +24,23 @@ const Machine = ({ spend, setSpend }) => {
     let resultStr = arr2str.join("");
     res = Number(resultStr);
     console.log("res:", res);
-    if (res === 0) animationStart(res);
-    if (res === 1) animationStart(res);
+    if (res === 0) animation(res);
+    if (res === 1)
+      animation(res, setAnimated, "animatedBomba", 330, "noAnimatedBomba");
 
-    if (res === 2) animationStartSnick(res);
-    if (res === 4) animationStartMars(res);
+    if (res === 2)
+      animation(res, setAnimatedSnick, "animatedSnick", 190, "noAnimatedSnick");
+    if (res === 4)
+      animation(res, setAnimatedMars, "animatedMars", 250, "noAnimatedMars");
   };
 
-  const animationStart = (res) => {
+  const animation = (res, setter, animstr, price, noanimstr) => {
     if (res === 0) setShowMadal(true);
-    if (res === 1 && spend >= 330) {
+    if (spend >= price) {
       res = 0;
-      setAnimated("animatedBomba");
-      setSpend(spend - 330);
-      setTimeout(() => setAnimated("noAnimatedBomba"), 3000);
-      setTimeout(() => {
-        setSpend(0);
-      }, 1500);
-    }
-  };
-  const animationStartSnick = (res) => {
-    if (res === 0) setShowMadal(true);
-    if (res === 2 && spend >= 190) {
-      res = 0;
-      setAnimatedSnick("animatedSnick");
-      setSpend(spend - 190);
-      setTimeout(() => setAnimatedSnick("noAnimatedSnick"), 3000);
-      setTimeout(() => {
-        setSpend(0);
-      }, 1500);
-    }
-  };
-  const animationStartMars = (res) => {
-    if (res === 0) setShowMadal(true);
-    if (res === 4 && spend > 500) {
-      res = 0;
-      setAnimatedMars("animatedMars");
-      setSpend(spend - 500);
-      setTimeout(() => setAnimatedMars("noAnimatedMars"), 3000);
+      setter(animstr);
+      setSpend(spend - price);
+      setTimeout(() => setter(noanimstr), 3000);
       setTimeout(() => {
         setSpend(0);
       }, 1500);
@@ -72,6 +51,12 @@ const Machine = ({ spend, setSpend }) => {
     <div className="machine__container">
       {isShowMadal ? <MoneyFirst setShowMadal={setShowMadal} /> : null}
       <Display spend={spend} />
+
+      <img
+        className="cancel-btn"
+        src={require("../pics/cancel-button.png")}
+        alt="cancel"
+      />
       <img
         className="machine"
         src={require("../pics/vendor-machine.png")}

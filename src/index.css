@@ -98,3 +98,41 @@ code {
   left: 433px;
   bottom: 498px;
 }
+.slot__container {
+  position: absolute;
+  z-index: 4;
+  width: 300px;
+  left: 183px;
+  top: 175px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4rem;
+}
+.slot__row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.slot__row > img {
+  width: 20px;
+}
+
+.label__container {
+  position: absolute;
+  z-index: 4;
+  width: 300px;
+  left: 183px;
+  top: 175px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4.38rem;
+}
+.label__row {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.label__row > span {
+  color: white;
+  font-size: 0.7rem;
+}

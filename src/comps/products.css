@@ -8,7 +8,7 @@
 .snickers > .animatedSnick {
   position: relative;
   left: 180px;
-  animation: mars 5s, display 5s;
+  animation: snick 5s, display 5s;
   opacity: 1;
 }
 .snickers > .noAnimatedSnick {
@@ -71,7 +71,7 @@
 }
 .mars > .animatedMars {
   position: relative;
-  left: 10px;
+  left: 185px;
 
   animation: mars 5s, display 5s;
   opacity: 1;
@@ -84,16 +84,51 @@
   10% {
     top: 10px;
   }
-
+  16% {
+    top: 100px;
+    visibility: hidden;
+  }
+  24% {
+    top: 170px;
+    visibility: hidden;
+  }
   25% {
-    top: 150px;
+    top: 170px;
 
     transform: rotateZ(50deg);
   }
 
   100% {
-    left: 20px;
-    top: 150px;
+    left: 185px;
+    top: 170px;
+    transform: rotateZ(50deg);
+  }
+}
+@keyframes snick {
+  0% {
+    top: 1px;
+  }
+
+  10% {
+    top: 10px;
+  }
+  16% {
+    top: 160px;
+    visibility: hidden;
+  }
+  24% {
+    top: 220px;
+    visibility: hidden;
+  }
+  25% {
+    top: 240px;
+
+    transform: rotateZ(50deg);
+  }
+
+  100% {
+    left: 270px;
+    top: 240px;
     transform: rotateZ(50deg);
   }
 }
@@ -103,10 +138,16 @@
     left: 76px;
     display: inline;
   }
-
+  9% {
+    transform: rotateZ(1deg);
+  }
   10% {
     left: 80px;
     top: 20px;
+    transform: rotateZ(180deg);
+  }
+  16% {
+    transform: rotateZ(360deg);
   }
   16% {
     top: 230px;

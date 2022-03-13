@@ -7,6 +7,9 @@ import PinPad from "./PinPad";
 import MoneyFirst from "./MoneyFirst";
 import { useState } from "react";
 import NoMoney from "./NoMoney";
+import { useTransform } from "framer-motion";
+import Labels from "./Labels";
+import LabelNumber from "./LabelNumber";
 //import { useEffect, useCallback } from "react";
 
 const Machine = ({ spend, setSpend }) => {
@@ -17,23 +20,24 @@ const Machine = ({ spend, setSpend }) => {
   const [isEnoughMoney, setMoney] = useState(false);
   const [moneyLeft, setMoneyLeft] = useState(0);
   //const [digit, setDigit] = useState(0);
-  const arr = [];
+  const [arr, setArr] = useState([]);
 
   const digitArr = (num) => arr.push(num);
 
   const setResultNum = (arr) => {
     let res = 0;
     let arr2str = arr.map((num) => num.toString());
+    setArr([]);
     let resultStr = arr2str.join("");
     res = Number(resultStr);
-    console.log("res:", res);
     if (res === 0) setShowMadal(true);
-    if (res === 1)
-      animation(res, setAnimated, "animatedBomba", 330, "noAnimatedBomba");
 
-    if (res === 2)
+    if (res === 11)
+      animation(res, setAnimated, "animatedBomba", 315, "noAnimatedBomba");
+
+    if (res === 9)
       animation(res, setAnimatedSnick, "animatedSnick", 190, "noAnimatedSnick");
-    if (res === 4)
+    if (res === 8)
       animation(res, setAnimatedMars, "animatedMars", 250, "noAnimatedMars");
   };
 
@@ -46,11 +50,17 @@ const Machine = ({ spend, setSpend }) => {
       res = 0;
       setter(animstr);
       setSpend(spend - price);
-      setTimeout(() => setter(noanimstr), 3000);
+      setMoneyLeft(0);
+      setTimeout(() => setter(noanimstr), 5000);
       setTimeout(() => {
         setSpend(0);
       }, 1500);
     }
+  };
+  const cancel = () => {
+    setArr([]);
+    setSpend(0);
+    setMoneyLeft(0);
   };
 
   return (
@@ -59,9 +69,12 @@ const Machine = ({ spend, setSpend }) => {
       {isEnoughMoney ? (
         <NoMoney moneyLeft={moneyLeft} setMoney={setMoney} />
       ) : null}
+      <Labels />
+      <LabelNumber />
       <Display spend={spend} />
 
       <img
+        onClick={() => cancel()}
         className="cancel-btn"
         src={require("../pics/cancel-button.png")}
         alt="cancel"

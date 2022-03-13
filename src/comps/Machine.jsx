@@ -11,7 +11,7 @@ const Machine = ({ spend, setSpend }) => {
   const [animated, setAnimated] = useState("noAnimatedBomba");
   const [animatedMars, setAnimatedMars] = useState("noAnimatedMars");
   const [animatedSnick, setAnimatedSnick] = useState("noAnimatedSnick");
-  const [digit, setDigit] = useState(null);
+  const [digit, setDigit] = useState(0);
   const arr = [];
 
   const digitArr = (num) => arr.push(num);
@@ -21,17 +21,16 @@ const Machine = ({ spend, setSpend }) => {
     console.log(arr2str);
     let resultStr = arr2str.join("");
     let res = Number(resultStr);
-    console.log(res, "resss");
+    // console.log(res, "resss");
 
-    setDigit(res);
-    console.log(digit, "digit");
+    // setDigit(digit + res);
+    // console.log(digit, "digit");
     animationStart(res);
   };
 
   const animationStart = (res) => {
-    console.log("hmmm");
-    console.log("digit:", digit);
-    console.log("spend:", spend);
+    // console.log("digit:", digit);
+    // console.log("spend:", spend);
     if (res === 1 && spend > 300) {
       setDigit(0);
       setAnimated("animatedBomba");
@@ -57,13 +56,13 @@ const Machine = ({ spend, setSpend }) => {
   //   }
   // }, [digit, setSpend, spend]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      // setAnimated("noAnimatedBomba");
-      setAnimatedMars("noAnimatedMars");
-      setAnimatedSnick("noAnimatedSnick");
-    }, 3000);
-  }, [spend, digit]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     // setAnimated("noAnimatedBomba");
+  //     setAnimatedMars("noAnimatedMars");
+  //     setAnimatedSnick("noAnimatedSnick");
+  //   }, 3000);
+  // }, [spend, digit]);
 
   return (
     <div className="machine__container">

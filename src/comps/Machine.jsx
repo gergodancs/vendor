@@ -4,6 +4,7 @@ import Snickers from "./Snickers";
 import Mars from "./Mars";
 import Display from "./Display";
 import PinPad from "./PinPad";
+import MoneyFirst from "./MoneyFirst";
 import { useState } from "react";
 //import { useEffect, useCallback } from "react";
 
@@ -11,6 +12,7 @@ const Machine = ({ spend, setSpend }) => {
   const [animated, setAnimated] = useState("noAnimatedBomba");
   const [animatedMars, setAnimatedMars] = useState("noAnimatedMars");
   const [animatedSnick, setAnimatedSnick] = useState("noAnimatedSnick");
+  const [isShowMadal, setShowMadal] = useState(false);
   //const [digit, setDigit] = useState(0);
   const arr = [];
 
@@ -24,13 +26,14 @@ const Machine = ({ spend, setSpend }) => {
     console.log("res:", res);
     if (res === 0) animationStart(res);
     if (res === 1) animationStart(res);
+
     if (res === 2) animationStartSnick(res);
     if (res === 4) animationStartMars(res);
   };
 
   const animationStart = (res) => {
-    if (res === 0) alert("MONEY FIRTS");
-    if (res === 1 && spend > 300) {
+    if (res === 0) setShowMadal(true);
+    if (res === 1 && spend >= 330) {
       res = 0;
       setAnimated("animatedBomba");
       setSpend(spend - 330);
@@ -41,11 +44,11 @@ const Machine = ({ spend, setSpend }) => {
     }
   };
   const animationStartSnick = (res) => {
-    if (res === 0) alert("MONEY FIRTS");
-    if (res === 2 && spend > 190) {
+    if (res === 0) setShowMadal(true);
+    if (res === 2 && spend >= 190) {
       res = 0;
       setAnimatedSnick("animatedSnick");
-      setSpend(spend - 330);
+      setSpend(spend - 190);
       setTimeout(() => setAnimatedSnick("noAnimatedSnick"), 3000);
       setTimeout(() => {
         setSpend(0);
@@ -53,11 +56,11 @@ const Machine = ({ spend, setSpend }) => {
     }
   };
   const animationStartMars = (res) => {
-    if (res === 0) alert("MONEY FIRTS");
+    if (res === 0) setShowMadal(true);
     if (res === 4 && spend > 500) {
       res = 0;
       setAnimatedMars("animatedMars");
-      setSpend(spend - 330);
+      setSpend(spend - 500);
       setTimeout(() => setAnimatedMars("noAnimatedMars"), 3000);
       setTimeout(() => {
         setSpend(0);
@@ -67,6 +70,7 @@ const Machine = ({ spend, setSpend }) => {
 
   return (
     <div className="machine__container">
+      {isShowMadal ? <MoneyFirst setShowMadal={setShowMadal} /> : null}
       <Display spend={spend} />
       <img
         className="machine"

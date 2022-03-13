@@ -66,3 +66,23 @@ code {
 .pinpad__container > div > span {
   cursor: pointer;
 }
+
+.money__first {
+  position: absolute;
+  background-image: linear-gradient(
+    190deg,
+    rgb(109, 108, 108),
+    rgb(185, 185, 185)
+  );
+  top: 150px;
+  width: 400px;
+  height: 400px;
+  left: 680px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  letter-spacing: 0.1rem;
+}

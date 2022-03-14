@@ -7,6 +7,7 @@ import PinPad from "./PinPad";
 import MoneyFirst from "./MoneyFirst";
 import { useState } from "react";
 import NoMoney from "./NoMoney";
+import BombaTwo from "./BombaTwo";
 
 import Labels from "./Labels";
 import LabelNumber from "./LabelNumber";
@@ -14,6 +15,8 @@ import LabelNumber from "./LabelNumber";
 
 const Machine = ({ spend, setSpend, back, setBack, backFunc }) => {
   const [animated, setAnimated] = useState("noAnimatedBomba");
+  const [animated2, setAnimated2] = useState("noAnimatedBomba2");
+
   const [animatedMars, setAnimatedMars] = useState("noAnimatedMars");
   const [animatedSnick, setAnimatedSnick] = useState("noAnimatedSnick");
   const [isShowMadal, setShowMadal] = useState(false);
@@ -34,10 +37,12 @@ const Machine = ({ spend, setSpend, back, setBack, backFunc }) => {
 
     if (res === 11)
       animation(res, setAnimated, "animatedBomba", 315, "noAnimatedBomba");
+    if (res === 22)
+      animation(res, setAnimated2, "animatedBomba2", 315, "noAnimatedBomba2");
 
     if (res === 9)
       animation(res, setAnimatedSnick, "animatedSnick", 190, "noAnimatedSnick");
-    if (res === 8)
+    if (res === 3)
       animation(res, setAnimatedMars, "animatedMars", 250, "noAnimatedMars");
   };
 
@@ -75,8 +80,10 @@ const Machine = ({ spend, setSpend, back, setBack, backFunc }) => {
       {isEnoughMoney ? (
         <NoMoney moneyLeft={moneyLeft} setMoney={setMoney} />
       ) : null}
-      <Labels />
-      <LabelNumber />
+      <div className="labels">
+        <Labels />
+        <LabelNumber />
+      </div>
       <Display spend={spend} />
 
       <img
@@ -97,6 +104,7 @@ const Machine = ({ spend, setSpend, back, setBack, backFunc }) => {
         setResultNum={setResultNum}
       />
       <Snickers animatedsnick={animatedSnick} />
+      <BombaTwo animated2={animated2} />
       <Bomba animated={animated} />
       <Mars animatedmars={animatedMars} />
     </div>

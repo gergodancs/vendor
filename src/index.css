@@ -27,10 +27,14 @@ code {
   max-height: 90vh;
   z-index: -1;
 }
+.machine__container {
+  height: 90vh;
+}
 .display__container {
   position: relative;
-  left: 385px;
-  top: 105px;
+  left: 74.5%;
+  top: 15%;
+
   display: flex;
   align-items: center;
 }
@@ -46,34 +50,36 @@ code {
   letter-spacing: 0.1rem;
 }
 .pinpad__container {
-  max-width: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  max-width: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 0.4rem;
+
   padding-left: 3px;
   position: relative;
   left: 75%;
   top: -480px;
-  row-gap: 0.4rem;
+}
+.pinpad__container > div {
+  display: flex;
+  justify-content: center;
 }
 
-.pinpad__container > img {
+.pinpad__container > div > img {
   width: 21px;
   cursor: pointer;
 }
 
-.pinpad__container > span {
-  position: relative;
-  left: -15px;
+.pinpad__container > div > span {
+  position: absolute;
+  font-weight: 600;
+
   font-size: 14px;
-  top: -3px;
+
+  z-index: 5;
 }
-.pinpad__container span:last-child {
-  font-size: 14px;
-  left: -19px;
-}
-.pinpad__container > span {
+
+.pinpad__container > div > span {
   cursor: pointer;
 }
 
@@ -100,15 +106,15 @@ code {
 .cancel-btn {
   position: relative;
   width: 35px;
-  left: 433px;
-  bottom: 498px;
+  left: 84%;
+  bottom: 73%;
 }
 .slot__container {
   position: absolute;
   z-index: 4;
   width: 300px;
-  left: 183px;
-  top: 175px;
+  left: 35.5%;
+  top: 10.9rem;
   display: flex;
   flex-direction: column;
   row-gap: 4rem;
@@ -126,8 +132,8 @@ code {
   position: absolute;
   z-index: 4;
   width: 300px;
-  left: 183px;
-  top: 175px;
+  left: 35.5%;
+  top: 10.9rem;
   display: flex;
   flex-direction: column;
   row-gap: 4.38rem;
@@ -140,4 +146,8 @@ code {
 .label__row > span {
   color: white;
   font-size: 0.7rem;
+}
+.labels {
+  position: relative;
+  right: 24%;
 }

@@ -12,7 +12,9 @@
   opacity: 1;
 }
 .snickers > .noAnimatedSnick {
-  opacity: 0;
+  position: relative;
+  left: 180px;
+  opacity: 1;
 }
 .snickers > .elso {
   position: relative;
@@ -36,17 +38,49 @@
 }
 .bomba > .masodik {
   position: relative;
-  left: 55px;
+  left: 75px;
 }
 
 .bomba > .noAnimatedBomba {
-  opacity: 0;
+  opacity: 1;
+  position: relative;
+  left: 60px;
 }
 .bomba > .animatedBomba {
   position: relative;
-  left: 75px;
+  left: 60px;
   animation: bomba 5s, display 5s;
-  opacity: 0;
+  opacity: 1;
+}
+.bomba2 {
+  position: relative;
+  top: -120%;
+  left: 22%;
+  width: 150px;
+}
+
+.bomba2 > img {
+  max-width: 50px;
+  max-height: 75px;
+}
+.bomba2 > .masodik2 {
+  position: relative;
+  left: 13%;
+  bottom: 5px;
+}
+
+.bomba2 > .noAnimatedBomba2 {
+  opacity: 1;
+  position: relative;
+  bottom: 2px;
+  left: 5%;
+}
+.bomba2 > .animatedBomba2 {
+  position: relative;
+  bottom: 2px;
+  left: 5%;
+  animation: bomba2 5s, display 5s;
+  opacity: 1;
 }
 .mars {
   position: relative;
@@ -66,41 +100,40 @@
 }
 .mars > .noAnimatedMars {
   position: relative;
-  left: 10px;
-  opacity: 0;
+  left: 185px;
+  bottom: 65px;
+  opacity: 1;
 }
 .mars > .animatedMars {
   position: relative;
   left: 185px;
-
+  bottom: 65px;
   animation: mars 5s, display 5s;
   opacity: 1;
 }
 @keyframes mars {
   0% {
-    top: 1px;
+    top: -30px;
   }
 
   10% {
-    top: 10px;
+    top: -30px;
   }
   16% {
-    top: 100px;
+    top: 5px;
     visibility: hidden;
+    transform: rotateZ(50deg);
   }
   24% {
-    top: 170px;
+    top: 90px;
     visibility: hidden;
   }
   25% {
-    top: 170px;
-
-    transform: rotateZ(50deg);
+    top: 95px;
   }
 
   100% {
-    left: 185px;
-    top: 170px;
+    top: 95px;
     transform: rotateZ(50deg);
   }
 }
@@ -113,7 +146,7 @@
     top: 10px;
   }
   16% {
-    top: 160px;
+    top: 150px;
     visibility: hidden;
   }
   24% {
@@ -135,39 +168,39 @@
 
 @keyframes bomba {
   0% {
-    left: 76px;
+    left: 60px;
     display: inline;
   }
   9% {
     transform: rotateZ(1deg);
   }
   10% {
-    left: 80px;
+    left: 65px;
     top: 20px;
-    transform: rotateZ(180deg);
+    transform: rotateZ(70deg);
+  }
+  15% {
+    transform: rotateZ(90deg);
   }
   16% {
-    transform: rotateZ(360deg);
-  }
-  16% {
-    top: 230px;
+    top: 150px;
     visibility: hidden;
   }
   20% {
-    top: 280px;
+    top: 230px;
     visibility: hidden;
   }
 
   21% {
     opacity: 1;
-    top: 320px;
+    top: 240px;
     left: 85px;
     transform: rotateZ(90deg);
   }
 
   100% {
     left: 150px;
-    top: 320px;
+    top: 240px;
     transform: rotateZ(90deg);
   }
 }
@@ -180,5 +213,41 @@
   }
   100% {
     opacity: 0;
+  }
+}
+@keyframes bomba2 {
+  0% {
+    display: inline;
+  }
+  9% {
+    transform: rotateZ(1deg);
+  }
+  10% {
+    top: 20px;
+    transform: rotateZ(180deg);
+  }
+  16% {
+    transform: rotateZ(360deg);
+  }
+  16% {
+    top: 380px;
+    visibility: hidden;
+  }
+  20% {
+    top: 450px;
+    visibility: hidden;
+  }
+
+  21% {
+    opacity: 1;
+    top: 490px;
+
+    transform: rotateZ(90deg);
+  }
+
+  100% {
+    left: 150px;
+    top: 490px;
+    transform: rotateZ(90deg);
   }
 }

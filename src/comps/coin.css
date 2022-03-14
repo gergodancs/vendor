@@ -9,15 +9,15 @@
 }
 .small__coins {
   display: flex;
-  column-gap: 5px;
+  flex-direction: column;
   margin-left: 10px;
   padding: 0.7rem;
   position: relative;
+  row-gap: 0.5rem;
   top: 20%;
 }
 
-.big__coins > img,
-.small__coins > img {
+.big__coins > img {
   max-width: 70px;
 }
 
@@ -25,4 +25,15 @@
   display: flex;
   flex-direction: column;
   height: 90vh;
+}
+.small__coins > div > img {
+  max-width: 70px;
+}
+.small__coins > .coins {
+  display: flex;
+  column-gap: 5px;
+}
+.back__container {
+  display: flex;
+  justify-content: space-around;
 }

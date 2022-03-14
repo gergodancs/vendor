@@ -7,12 +7,12 @@ import PinPad from "./PinPad";
 import MoneyFirst from "./MoneyFirst";
 import { useState } from "react";
 import NoMoney from "./NoMoney";
-import { useTransform } from "framer-motion";
+
 import Labels from "./Labels";
 import LabelNumber from "./LabelNumber";
 //import { useEffect, useCallback } from "react";
 
-const Machine = ({ spend, setSpend }) => {
+const Machine = ({ spend, setSpend, back, setBack, backFunc }) => {
   const [animated, setAnimated] = useState("noAnimatedBomba");
   const [animatedMars, setAnimatedMars] = useState("noAnimatedMars");
   const [animatedSnick, setAnimatedSnick] = useState("noAnimatedSnick");
@@ -47,7 +47,13 @@ const Machine = ({ spend, setSpend }) => {
       setMoney(true);
     }
     if (spend >= price) {
+      console.log(spend, ".spend", price, ":price");
       res = 0;
+      let backM = spend - price;
+      //setBack(back + backM);
+      console.log(backM, ":back");
+      backFunc(backM);
+      setBack(0);
       setter(animstr);
       setSpend(spend - price);
       setMoneyLeft(0);

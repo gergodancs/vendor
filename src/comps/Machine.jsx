@@ -47,11 +47,11 @@ const Machine = ({ spend, setSpend, backCounter }) => {
     }
 
     if (res === 9) {
-      animation(res, setAnimatedSnick, "animatedSnick", 190, "noAnimatedSnick");
+      animation(res, setAnimatedSnick, "animatedSnick", 220, "noAnimatedSnick");
       return;
     }
     if (res === 3) {
-      animation(res, setAnimatedMars, "animatedMars", 250, "noAnimatedMars");
+      animation(res, setAnimatedMars, "animatedMars", 190, "noAnimatedMars");
       return;
     } else {
       return setOther(true);

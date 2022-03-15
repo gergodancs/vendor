@@ -14,7 +14,8 @@
   padding: 0.7rem;
   position: relative;
   row-gap: 0.5rem;
-  top: 20%;
+  right: 55%;
+  top: 40%;
 }
 
 .big__coins > img {
@@ -29,13 +30,32 @@
   height: 90vh;
 }
 .small__coins > div > img {
-  max-width: 70px;
+  max-width: 25px;
 }
 .small__coins > .coins {
   display: flex;
   column-gap: 5px;
 }
 .back__container {
+  width: 35%;
   display: flex;
   justify-content: space-around;
+  margin-top: 5px;
+}
+.back__container > span {
+  color: darkblue;
+  font-size: 18px;
+  font-weight: 600;
+}
+.hidden {
+  visibility: hidden;
+  width: 35%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+.hidden > span {
+  color: darkblue;
+  font-size: 18px;
+  font-weight: 600;
 }

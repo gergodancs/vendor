@@ -101,7 +101,7 @@ code {
   align-items: center;
   border-radius: 10px;
   letter-spacing: 0.1rem;
-  z-index: 5;
+  z-index: 10;
 }
 .cancel-btn {
   position: relative;
@@ -150,4 +150,27 @@ code {
 .labels {
   position: relative;
   right: 24%;
+}
+.other {
+  position: absolute;
+  background-image: linear-gradient(
+    190deg,
+    rgb(109, 108, 108),
+    rgb(185, 185, 185)
+  );
+  top: 150px;
+  width: 400px;
+  height: 400px;
+  left: 500px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  letter-spacing: 0.1rem;
+  z-index: 10;
+}
+.other > h1 {
+  text-align: center;
 }

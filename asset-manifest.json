@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/vendor/static/css/main.430e8801.css",
+    "main.js": "/vendor/static/js/main.ad2bc2fb.js",
+    "static/media/vendor-machine.png": "/vendor/static/media/vendor-machine.ac24ddc4ea3222a2ef70.png",
+    "static/media/product-snickers.png": "/vendor/static/media/product-snickers.015d6fbecab2990b69d1.png",
+    "static/media/product-mars.png": "/vendor/static/media/product-mars.7728f29183bf4f93c273.png",
+    "static/media/product-bomba.png": "/vendor/static/media/product-bomba.951c9253cecfb6ba8858.png",
+    "index.html": "/vendor/index.html",
+    "main.430e8801.css.map": "/vendor/static/css/main.430e8801.css.map",
+    "main.ad2bc2fb.js.map": "/vendor/static/js/main.ad2bc2fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.430e8801.css",
+    "static/js/main.ad2bc2fb.js"
+  ]
+}

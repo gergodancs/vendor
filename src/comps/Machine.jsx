@@ -8,7 +8,6 @@ import MoneyFirst from "./MoneyFirst";
 import { useState } from "react";
 import NoMoney from "./NoMoney";
 import BombaTwo from "./BombaTwo";
-import OtherPls from "./OtherPls";
 
 import Labels from "./Labels";
 import LabelNumber from "./LabelNumber";
@@ -18,7 +17,6 @@ const Machine = ({ spend, setSpend, backCounter }) => {
   const [animated, setAnimated] = useState("noAnimatedBomba");
   const [animated2, setAnimated2] = useState("noAnimatedBomba2");
   //const [back, setBack] = useState(0);
-  const [other, setOther] = useState(false);
   const [animatedMars, setAnimatedMars] = useState("noAnimatedMars");
   const [animatedSnick, setAnimatedSnick] = useState("noAnimatedSnick");
   const [isShowMadal, setShowMadal] = useState(false);
@@ -53,8 +51,6 @@ const Machine = ({ spend, setSpend, backCounter }) => {
     if (res === 3) {
       animation(res, setAnimatedMars, "animatedMars", 190, "noAnimatedMars");
       return;
-    } else {
-      return setOther(true);
     }
   };
 
@@ -64,6 +60,7 @@ const Machine = ({ spend, setSpend, backCounter }) => {
       setMoney(true);
     }
     if (spend >= price) {
+      res = 0;
       let maradek = 0;
       maradek = spend - price;
       setter(animstr);
@@ -87,7 +84,6 @@ const Machine = ({ spend, setSpend, backCounter }) => {
       {isEnoughMoney ? (
         <NoMoney moneyLeft={moneyLeft} setMoney={setMoney} />
       ) : null}
-      {other ? <OtherPls setOther={setOther} /> : null}
       <div className="labels">
         <Labels />
         <LabelNumber />
